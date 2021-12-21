@@ -1,11 +1,12 @@
+import { memo } from 'react';
 import './Container.css';
 
-function Container(props) {
+function Container({ children, customClass }) {
     return (
-        <div className={`container ${props.customClass}`}>
-            {props.children}
+        <div className={`container ${customClass}`}>
+            {children}
         </div>
     );
 }
 
-export default Container;
+export default memo(Container);

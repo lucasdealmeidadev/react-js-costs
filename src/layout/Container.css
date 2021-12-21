@@ -5,16 +5,13 @@
     margin: 0 auto;
     flex-wrap: wrap;
 }
-
 .start {
     justify-content: flex-start;
 }
-
 .column {
     flex-direction: column;
     justify-content: flex-start;
 }
-
 .min-height {
-    min-height: 75%;
+    min-height: 100vh;
 }
