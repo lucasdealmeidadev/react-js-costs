@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Home, Company, Projects, NewProject, Contact } from './components/pages';
-import { NavBar, Container, Footer } from './layout';
+import { NavBar, Container, Footer } from './components/layout';
 
 function App() {
 	return (

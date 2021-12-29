@@ -1,8 +1,8 @@
 import { memo } from 'react';
 import { Link } from 'react-router-dom';
-import { Container } from '../layout';
+import { Container } from '.';
 
-import logo from '../../src/img/costs_logo.png';
+import logo from '../../../src/img/costs_logo.png';
 import './NavBar.css';
 
 function NavBar() {
