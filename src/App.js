@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Home, Company, Projects, NewProject, Contact } from './components/pages';
 import { NavBar, Container, Footer } from './components/layout';
@@ -20,4 +21,4 @@ function App() {
 	);
 }
 
-export default App;
+export default memo(App);
