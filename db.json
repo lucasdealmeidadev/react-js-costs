@@ -10,6 +10,215 @@
       "cost": 0,
       "service": [],
       "id": 1
+    },
+    {
+      "name": "Criação Servidor",
+      "budget": "10000",
+      "category": {
+        "id": "1",
+        "name": "Infra"
+      },
+      "cost": 0,
+      "service": [],
+      "id": 2
+    },
+    {
+      "name": "Teste",
+      "budget": "5000",
+      "category": {
+        "id": "2",
+        "name": "Desenvolvimento"
+      },
+      "cost": 0,
+      "service": [],
+      "id": 3
+    },
+    {
+      "name": "teste",
+      "budget": "123",
+      "category": {
+        "id": "2",
+        "name": "Desenvolvimento"
+      },
+      "cost": 0,
+      "service": [],
+      "id": 4
+    },
+    {
+      "name": "11",
+      "budget": "23",
+      "category": {
+        "id": "2",
+        "name": "Desenvolvimento"
+      },
+      "cost": 0,
+      "service": [],
+      "id": 5
+    },
+    {
+      "name": "Lucas de Almeida Monteiro",
+      "budget": "123",
+      "category": {
+        "id": "2",
+        "name": "Desenvolvimento"
+      },
+      "cost": 0,
+      "service": [],
+      "id": 6
+    },
+    {
+      "name": "Lucas de Almeida Monteiro",
+      "budget": "234",
+      "category": {
+        "id": "2",
+        "name": "Desenvolvimento"
+      },
+      "cost": 0,
+      "service": [],
+      "id": 7
+    },
+    {
+      "name": "testando",
+      "budget": "89",
+      "category": {
+        "id": "1",
+        "name": "Infra"
+      },
+      "cost": 0,
+      "service": [],
+      "id": 8
+    },
+    {
+      "name": "Lucas de Almeida Monteiro",
+      "budget": "53",
+      "category": {
+        "id": "2",
+        "name": "Desenvolvimento"
+      },
+      "cost": 0,
+      "service": [],
+      "id": 9
+    },
+    {
+      "name": "testando",
+      "budget": "111",
+      "category": {
+        "id": "1",
+        "name": "Infra"
+      },
+      "cost": 0,
+      "service": [],
+      "id": 10
+    },
+    {
+      "name": "Juliano Matheus",
+      "budget": "222",
+      "category": {
+        "id": "3",
+        "name": "Design"
+      },
+      "cost": 0,
+      "service": [],
+      "id": 11
+    },
+    {
+      "name": "Richard Wilder",
+      "budget": "7",
+      "category": {
+        "id": "3",
+        "name": "Design"
+      },
+      "cost": 0,
+      "service": [],
+      "id": 14
+    },
+    {
+      "name": "Sopoline Kelley",
+      "budget": "91",
+      "category": {
+        "id": "Selecione uma opção",
+        "name": "Selecione uma opção"
+      },
+      "cost": 0,
+      "service": [],
+      "id": 15
+    },
+    {
+      "name": "Latifah Bird",
+      "budget": "79",
+      "category": {
+        "id": "1",
+        "name": "Infra"
+      },
+      "cost": 0,
+      "service": [],
+      "id": 16
+    },
+    {
+      "name": "Eric Alston",
+      "budget": "72",
+      "category": {
+        "id": "Selecione uma opção",
+        "name": "Selecione uma opção"
+      },
+      "cost": 0,
+      "service": [],
+      "id": 17
+    },
+    {
+      "name": "Maya Wiggins",
+      "budget": "64",
+      "category": {
+        "id": "1",
+        "name": "Infra"
+      },
+      "cost": 0,
+      "service": [],
+      "id": 18
+    },
+    {
+      "name": "Ray Knapp",
+      "budget": "41",
+      "category": {
+        "id": "4",
+        "name": "Planejamento"
+      },
+      "cost": 0,
+      "service": [],
+      "id": 19
+    },
+    {
+      "name": "Lucas de Almeida Monteiro",
+      "budget": "34",
+      "category": {
+        "id": "3",
+        "name": "Design"
+      },
+      "cost": 0,
+      "service": [],
+      "id": 20
+    },
+    {
+      "name": "Margaret Steele",
+      "budget": "21",
+      "category": {
+        "id": "Selecione uma opção",
+        "name": "Selecione uma opção"
+      },
+      "cost": 0,
+      "service": [],
+      "id": 21
+    },
+    {
+      "name": "Kiona Hernandez",
+      "budget": "15",
+      "category": {
+        "id": "4",
+        "name": "Planejamento"
+      },
+      "cost": 0,
+      "service": [],
+      "id": 22
     }
   ],
   "categories": [
