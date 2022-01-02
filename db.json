@@ -241,6 +241,39 @@
       "cost": 0,
       "service": [],
       "id": 24
+    },
+    {
+      "name": "Wyoming Greene",
+      "budget": "53",
+      "category": {
+        "id": "Selecione uma opção",
+        "name": "Selecione uma opção"
+      },
+      "cost": 0,
+      "service": [],
+      "id": 25
+    },
+    {
+      "name": "almeida",
+      "budget": "36",
+      "category": {
+        "id": "2",
+        "name": "Desenvolvimento"
+      },
+      "cost": 0,
+      "service": [],
+      "id": 26
+    },
+    {
+      "name": "Lucas Hall",
+      "budget": "72",
+      "category": {
+        "id": "3",
+        "name": "Design"
+      },
+      "cost": 0,
+      "service": [],
+      "id": 27
     }
   ],
   "categories": [
