@@ -1,6 +1,8 @@
 import { useLocation } from 'react-router-dom';
 import { useEffect, memo } from 'react';
-import { Message } from '../layout';
+import { Container, LinkButton, Message } from '../layout';
+
+import './Projects.css';
 
 function Projects() {
     const location = useLocation();
@@ -13,13 +15,23 @@ function Projects() {
     }
 
     useEffect(() => {
-        window.history.replaceState({}, document.title);
+        if (location.state) {
+            window.history.replaceState({}, document.title);
+        }
     }, []);
 
     return (
-        <div>
-            <h1>Meus Projetos</h1>
+        <div className='project-container'>
+            <div className='title-conatiner'>
+                <h1>Meus Projetos</h1>
+                <LinkButton to='/new-project' text='Criar Projeto'/>
+            </div>
+            
             {message && <Message type={type} message={message} />}
+            
+            <Container customClass='start'>
+                <p>Projetos...</p>
+            </Container>
         </div>
     );
 }
