@@ -6,7 +6,7 @@ import './NewProject.css';
 
 function NewProject() {
     const navigate = useNavigate();
-
+    
     const createPost = (project) => {
         // Initialize cost and services
         project.cost = 0;
