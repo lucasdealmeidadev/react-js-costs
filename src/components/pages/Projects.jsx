@@ -8,7 +8,8 @@ import './Projects.css';
 function Projects() {
     const [projects, setProjects] = useState([]);
     const [removeLoading, setRemoveLoading] = useState(false);
-    
+    const [projectMessage, setProjectMessage] = useState('');
+
     const location = useLocation();
     let type = '';
     let message = '';
@@ -37,6 +38,25 @@ function Projects() {
         .catch((error) => console.log(error));
     }, []);
 
+    const removeProject = (id) => {
+        setRemoveLoading(false);
+
+        fetch(`http://localhost:5000/projects/${id}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        .then((resp) => resp.json())
+        .then((data) => {
+            setProjects(projects.filter((project) => project.id !== id));
+            setRemoveLoading(true);
+            setProjectMessage('Projeto removido com sucesso!');
+            console.log(projectMessage);
+        })
+        .catch((error) => console.log(error));
+    }
+
     return (
         <div className='project-container'>
             <div className='title-container'>
@@ -45,6 +65,8 @@ function Projects() {
             </div>
             
             {message && <Message type={type} message={message} />}
+
+            {projectMessage && <Message type='success' message={projectMessage} />}
             
             <Container customClass='start'>
                 {
@@ -55,6 +77,7 @@ function Projects() {
                             name={project.name}
                             budget={project.budget}
                             category={project.category.name}
+                            handleRemove={removeProject}
                         />
                     )) 
                 }

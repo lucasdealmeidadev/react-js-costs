@@ -1,5 +1,17 @@
 {
-  "projects": [],
+  "projects": [
+    {
+      "budget": "4000",
+      "name": "Atualizar servidor Node.js",
+      "category": {
+        "id": "1",
+        "name": "Infra"
+      },
+      "cost": 0,
+      "service": [],
+      "id": 1
+    }
+  ],
   "categories": [
     {
       "id": 1,
