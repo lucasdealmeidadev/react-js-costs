@@ -40,6 +40,7 @@ function Projects() {
 
     const removeProject = (id) => {
         setRemoveLoading(false);
+        setProjectMessage('');
 
         fetch(`http://localhost:5000/projects/${id}`, {
             method: 'DELETE',
@@ -51,8 +52,7 @@ function Projects() {
         .then((data) => {
             setProjects(projects.filter((project) => project.id !== id));
             setRemoveLoading(true);
-            setProjectMessage('Projeto removido com sucesso!');
-            console.log(projectMessage);
+            setProjectMessage({ type: 'success', message: 'Projeto removido com sucesso!' });
         })
         .catch((error) => console.log(error));
     }
@@ -65,8 +65,7 @@ function Projects() {
             </div>
             
             {message && <Message type={type} message={message} />}
-
-            {projectMessage && <Message type='success' message={projectMessage} />}
+            {projectMessage && <Message type='success' message={projectMessage.message} />}
             
             <Container customClass='start'>
                 {
