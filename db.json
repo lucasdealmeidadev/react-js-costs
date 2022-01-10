@@ -1,7 +1,7 @@
 {
   "projects": [
     {
-      "budget": "4000",
+      "budget": "6000",
       "name": "Atualizar servidor Node.js",
       "category": {
         "id": "1",
@@ -12,26 +12,15 @@
       "id": 1
     },
     {
-      "name": "Emery Douglas",
-      "budget": "41",
+      "name": "testando",
+      "budget": "500",
       "category": {
-        "id": "3",
-        "name": "Design"
+        "id": "2",
+        "name": "Desenvolvimento"
       },
       "cost": 0,
       "service": [],
       "id": 2
-    },
-    {
-      "name": "Dennis Hansen",
-      "budget": "65",
-      "category": {
-        "id": "4",
-        "name": "Planejamento"
-      },
-      "cost": 0,
-      "service": [],
-      "id": 3
     }
   ],
   "categories": [

@@ -8,19 +8,14 @@ import './Projects.css';
 function Projects() {
     const [projects, setProjects] = useState([]);
     const [removeLoading, setRemoveLoading] = useState(false);
-    const [projectMessage, setProjectMessage] = useState('');
-
+    const [message, setMessage] = useState({});
     const location = useLocation();
-    let type = '';
-    let message = '';
-
-    if (location.state) {
-        type = location.state.type;
-        message = location.state.message;
-    }
 
     useEffect(() => {
         if (location.state) {
+            const {type, message } = location.state;
+
+            setMessage({ type: type, message: message });
             window.history.replaceState({}, document.title);
         }
 
@@ -40,7 +35,7 @@ function Projects() {
 
     const removeProject = (id) => {
         setRemoveLoading(false);
-        setProjectMessage('');
+        setMessage({});
 
         fetch(`http://localhost:5000/projects/${id}`, {
             method: 'DELETE',
@@ -52,7 +47,7 @@ function Projects() {
         .then((data) => {
             setProjects(projects.filter((project) => project.id !== id));
             setRemoveLoading(true);
-            setProjectMessage({ type: 'success', message: 'Projeto removido com sucesso!' });
+            setMessage({ type: 'success', message: 'Projeto removido com sucesso!' });
         })
         .catch((error) => console.log(error));
     }
@@ -64,9 +59,8 @@ function Projects() {
                 <LinkButton to='/new-project' text='Criar Projeto'/>
             </div>
             
-            {message && <Message type={type} message={message} />}
-            {projectMessage && <Message type='success' message={projectMessage.message} />}
-            
+            {message && <Message type={message.type} message={message.message} />}
+
             <Container customClass='start'>
                 {
                     projects.length > 0 && projects.map((project) => (
