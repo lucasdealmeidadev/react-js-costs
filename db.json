@@ -12,7 +12,7 @@
       "id": 1
     },
     {
-      "name": "testando",
+      "name": "testando 2",
       "budget": "500",
       "category": {
         "id": "2",
@@ -21,6 +21,17 @@
       "cost": 0,
       "service": [],
       "id": 2
+    },
+    {
+      "name": "Ashton Perry",
+      "budget": "48",
+      "category": {
+        "id": "3",
+        "name": "Design"
+      },
+      "cost": 0,
+      "service": [],
+      "id": 3
     }
   ],
   "categories": [

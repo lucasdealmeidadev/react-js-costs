@@ -1,9 +1,9 @@
 import { Fragment, useState, useEffect, memo } from 'react';
 import './Message.css';
 
-function Message({ type, message }) {
+function Message({ type, message, setMessage }) {
     const [visible, setVisible] = useState(false);
-
+   
     useEffect(() => {
         if(!message){
             setVisible(false);
@@ -14,8 +14,9 @@ function Message({ type, message }) {
 
         const timer = setTimeout(() => {
             setVisible(false);
-        }, 4000);
-
+            setMessage({});
+        }, 5000);
+        
         return () => clearTimeout(timer);
     }, [message]);
 

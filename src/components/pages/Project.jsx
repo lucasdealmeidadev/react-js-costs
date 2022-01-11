@@ -10,7 +10,7 @@ function Project() {
     const [project, setProject] = useState([]);
     const [showProjectForm, setShowProjectForm] = useState(false);
     const [message, setMessage] = useState({});
-
+    
     useEffect(() => {
         fetch(`http://localhost:5000/projects/${id}`, {
             method: 'GET',
@@ -28,13 +28,12 @@ function Project() {
     const toggleProjectForm = () => {
         setShowProjectForm(!showProjectForm);
     }
-    
-    const editPost = (project) => {
-        setMessage({});
+
+    const editPost = (project) => {   
         //budget validation
-        if(project.budget < project.cost) {
-            setMessage({ type: 'error', message: 'O Orçamento não pode ser menor que o custo do projeto!' });
-            return false;
+        if (project.budget < project.cost) {
+            setMessage({ type: 'error', message: 'O orçamento não pode ser menor que o custo do projeto!' });
+            return;
         }
 
         fetch(`http://localhost:5000/projects/${project.id}`, {
@@ -58,13 +57,19 @@ function Project() {
             {project.name ? (
                 <div className='project-details'>
                     <Container customClass='column'>
-                        {message && <Message type={message.type} message={message.message} />}
-                        
+                        {message && <Message 
+                                            type={message.type} 
+                                            message={message.message} 
+                                            setMessage={setMessage}
+                                    />}
+
                         <div className='details-container'>
                             <h1>Projeto: {project.name}</h1>
+                            
                             <button onClick={toggleProjectForm} className='btn'>
                                 {!showProjectForm ? 'Editar projeto' : 'Fechar'}
                             </button>
+
                             {!showProjectForm ? (
                                 <div className='project-info'>
                                     <p>

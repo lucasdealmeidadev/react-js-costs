@@ -35,7 +35,6 @@ function Projects() {
 
     const removeProject = (id) => {
         setRemoveLoading(false);
-        setMessage({});
 
         fetch(`http://localhost:5000/projects/${id}`, {
             method: 'DELETE',
@@ -59,7 +58,11 @@ function Projects() {
                 <LinkButton to='/new-project' text='Criar Projeto'/>
             </div>
             
-            {message && <Message type={message.type} message={message.message} />}
+            {message && <Message 
+                                type={message.type} 
+                                message={message.message} 
+                                setMessage={setMessage} 
+                        />}
 
             <Container customClass='start'>
                 {
