@@ -13,9 +13,9 @@ function Projects() {
 
     useEffect(() => {
         if (location.state) {
-            const {type, message } = location.state;
+            const { type, message, hash } = location.state;
 
-            setMessage({ type: type, message: message });
+            setMessage({ type: type, message: message, hash: hash });
             window.history.replaceState({}, document.title);
         }
 
@@ -25,12 +25,12 @@ function Projects() {
                 'Content-Type': 'application/json'
             }
         })
-        .then((resp) => resp.json())
-        .then((data) => {
-            setProjects(data);
-            setRemoveLoading(true);
-        })
-        .catch((error) => console.log(error));
+            .then((resp) => resp.json())
+            .then((data) => {
+                setProjects(data);
+                setRemoveLoading(true);
+            })
+            .catch((error) => console.log(error));
     }, []);
 
     const removeProject = (id) => {
@@ -46,7 +46,7 @@ function Projects() {
         .then((data) => {
             setProjects(projects.filter((project) => project.id !== id));
             setRemoveLoading(true);
-            setMessage({ type: 'success', message: 'Projeto removido com sucesso!' });
+            setMessage({ type: 'success', message: 'Projeto removido com sucesso!', hash: new Date() });
         })
         .catch((error) => console.log(error));
     }
@@ -55,14 +55,15 @@ function Projects() {
         <div className='project-container'>
             <div className='title-container'>
                 <h1>Meus Projetos</h1>
-                <LinkButton to='/new-project' text='Criar Projeto'/>
+                <LinkButton to='/new-project' text='Criar Projeto' />
             </div>
-            
-            {message && <Message 
-                                type={message.type} 
-                                message={message.message} 
-                                setMessage={setMessage} 
-                        />}
+
+            {message && <Message
+                type={message.type}
+                message={message.message}
+                hash={message.hash}
+                setMessage={setMessage}
+            />}
 
             <Container customClass='start'>
                 {
@@ -75,7 +76,7 @@ function Projects() {
                             category={project.category.name}
                             handleRemove={removeProject}
                         />
-                    )) 
+                    ))
                 }
                 {!removeLoading && <Loading />}
                 {removeLoading && projects.length === 0 && (

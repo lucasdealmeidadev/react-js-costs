@@ -32,7 +32,7 @@ function Project() {
     const editPost = (project) => {   
         //budget validation
         if (project.budget < project.cost) {
-            setMessage({ type: 'error', message: 'O orçamento não pode ser menor que o custo do projeto!' });
+            setMessage({ type: 'error', message: 'O orçamento não pode ser menor que o custo do projeto!', hash: new Date() });
             return;
         }
 
@@ -47,7 +47,7 @@ function Project() {
         .then((data) => {
             setProject(data);
             setShowProjectForm(false);
-            setMessage({ type: 'success', message: 'Projeto atualizado com sucesso!' });
+            setMessage({ type: 'success', message: 'Projeto atualizado com sucesso!', hash: new Date() });
         })
         .catch((error) => console.log(error));
     }
@@ -60,6 +60,7 @@ function Project() {
                         {message && <Message 
                                             type={message.type} 
                                             message={message.message} 
+                                            hash={message.hash}
                                             setMessage={setMessage}
                                     />}
 
