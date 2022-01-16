@@ -21,28 +21,6 @@
       "cost": 0,
       "service": [],
       "id": 2
-    },
-    {
-      "name": "Vaughan Lawrence",
-      "budget": "24",
-      "category": {
-        "id": "3",
-        "name": "Design"
-      },
-      "cost": 0,
-      "service": [],
-      "id": 3
-    },
-    {
-      "name": "Lester Durham",
-      "budget": "81",
-      "category": {
-        "id": "3",
-        "name": "Design"
-      },
-      "cost": 0,
-      "service": [],
-      "id": 5
     }
   ],
   "categories": [

@@ -25,12 +25,12 @@ function Projects() {
                 'Content-Type': 'application/json'
             }
         })
-            .then((resp) => resp.json())
-            .then((data) => {
-                setProjects(data);
-                setRemoveLoading(true);
-            })
-            .catch((error) => console.log(error));
+        .then((resp) => resp.json())
+        .then((data) => {
+            setProjects(data);
+            setRemoveLoading(true);
+        })
+        .catch((error) => console.log(error));
     }, []);
 
     const removeProject = (id) => {
@@ -58,7 +58,7 @@ function Projects() {
                 <LinkButton to='/new-project' text='Criar Projeto' />
             </div>
 
-            {message && <Message
+            {message.hash && <Message
                 type={message.type}
                 message={message.message}
                 hash={message.hash}

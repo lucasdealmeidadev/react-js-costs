@@ -9,8 +9,9 @@ function Project() {
     const { id } = useParams();
     const [project, setProject] = useState([]);
     const [showProjectForm, setShowProjectForm] = useState(false);
+    const [showServiceForm, setShowServiceForm] = useState(false);
     const [message, setMessage] = useState({});
-    
+
     useEffect(() => {
         fetch(`http://localhost:5000/projects/${id}`, {
             method: 'GET',
@@ -29,7 +30,11 @@ function Project() {
         setShowProjectForm(!showProjectForm);
     }
 
-    const editPost = (project) => {   
+    const toggleServiceForm = () => {
+        setShowServiceForm(!showServiceForm);
+    }
+
+    const editPost = (project) => {
         //budget validation
         if (project.budget < project.cost) {
             setMessage({ type: 'error', message: 'O orçamento não pode ser menor que o custo do projeto!', hash: new Date() });
@@ -57,16 +62,16 @@ function Project() {
             {project.name ? (
                 <div className='project-details'>
                     <Container customClass='column'>
-                        {message && <Message 
-                                            type={message.type} 
-                                            message={message.message} 
-                                            hash={message.hash}
-                                            setMessage={setMessage}
-                                    />}
+                        {message.hash && <Message
+                            type={message.type}
+                            message={message.message}
+                            hash={message.hash}
+                            setMessage={setMessage}
+                        />}
 
                         <div className='details-container'>
                             <h1>Projeto: {project.name}</h1>
-                            
+
                             <button onClick={toggleProjectForm} className='btn'>
                                 {!showProjectForm ? 'Editar projeto' : 'Fechar'}
                             </button>
@@ -84,13 +89,35 @@ function Project() {
                                     </p>
                                 </div>
                             ) : (
-                                <ProjectForm 
-                                    handleSubmit={editPost} 
-                                    btnText='Concluir Edição' 
+                                <ProjectForm
+                                    handleSubmit={editPost}
+                                    btnText='Concluir Edição'
                                     projectData={project}
                                 />
                             )}
                         </div>
+
+                        <div className='service-form-container'>
+                            <h2>Adicione um serviço:</h2>
+                            
+                            <button onClick={toggleServiceForm} className='btn'>
+                                {!showServiceForm ? 'Adicionar Serviço' : 'Fechar'}
+                            </button>
+
+                            <div className='project-info'>
+                                {showServiceForm && (
+                                    <div>
+                                        <p>Formulário de Serviço</p>
+                                    </div>
+                                )}
+                            </div>
+                        </div>
+                        
+                        <h1>Serviços</h1> 
+                        
+                        <Container customClass='start'>
+                            <p>Itens do serviçofa-spin</p>
+                        </Container>
                     </Container>
                 </div>
             ) : (
