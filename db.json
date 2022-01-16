@@ -7,38 +7,27 @@
         "id": "1",
         "name": "Infra"
       },
-      "cost": 898,
+      "cost": 1000,
       "services": [
         {
-          "name": "Bree Hess",
-          "cost": "898",
-          "description": "Facere pariatur Min",
-          "id": "300c1f35-ac4f-4534-98c0-b31342abf21e"
+          "name": "Build",
+          "cost": "1000",
+          "description": "Testando Build",
+          "id": "8c3fda50-faff-4478-bc30-b8c47cdc0564"
         }
       ],
       "id": 1
     },
     {
-      "name": "Porter Griffith",
-      "budget": "50000",
+      "name": "Taylor Taylor",
+      "budget": "81",
       "category": {
-        "id": "2",
-        "name": "Desenvolvimento"
+        "id": "1",
+        "name": "Infra"
       },
       "cost": 0,
       "services": [],
       "id": 2
-    },
-    {
-      "name": "Signe Fischer",
-      "budget": "57",
-      "category": {
-        "id": "4",
-        "name": "Planejamento"
-      },
-      "cost": 0,
-      "services": [],
-      "id": 3
     }
   ],
   "categories": [
