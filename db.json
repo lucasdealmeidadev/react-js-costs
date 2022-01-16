@@ -7,31 +7,13 @@
         "id": "1",
         "name": "Infra"
       },
-      "cost": 5168,
+      "cost": 898,
       "services": [
         {
-          "name": "TESTE",
-          "description": "Testando serviço",
-          "cost": "5000",
-          "id": "bf49d372-e3ef-435c-83c4-78aa813116e0"
-        },
-        {
-          "name": "Dolan Shields",
-          "cost": "39",
-          "description": "Quo et dicta et volu",
-          "id": "a70d0ab5-3e3e-44a9-b19c-9f9217801fd3"
-        },
-        {
-          "name": "Fuller Sexton",
-          "cost": "97",
-          "description": "Facilis tempore est",
-          "id": "27360a86-3379-4d05-aced-2a960c34cb41"
-        },
-        {
-          "name": "Bernard Everett",
-          "cost": "32",
-          "description": "Proident eu minima ",
-          "id": "fe57dc17-5c32-4ba0-9cfa-2a7d09f1c601"
+          "name": "Bree Hess",
+          "cost": "898",
+          "description": "Facere pariatur Min",
+          "id": "300c1f35-ac4f-4534-98c0-b31342abf21e"
         }
       ],
       "id": 1
@@ -46,6 +28,17 @@
       "cost": 0,
       "services": [],
       "id": 2
+    },
+    {
+      "name": "Signe Fischer",
+      "budget": "57",
+      "category": {
+        "id": "4",
+        "name": "Planejamento"
+      },
+      "cost": 0,
+      "services": [],
+      "id": 3
     }
   ],
   "categories": [
