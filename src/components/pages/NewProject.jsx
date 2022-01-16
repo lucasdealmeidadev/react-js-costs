@@ -12,7 +12,7 @@ function NewProject() {
     const createPost = (project) => {
         // Initialize cost and services
         project.cost = 0;
-        project.service = [];
+        project.services = [];
 
         //budget validation
         if (project.budget < 0) {

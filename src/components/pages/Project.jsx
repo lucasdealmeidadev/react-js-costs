@@ -1,5 +1,7 @@
+import { parse, v4 as uuidv4 } from 'uuid';
 import { useParams } from 'react-router-dom';
 import { useState, useEffect, memo, Fragment } from 'react';
+import { ServiceForm } from '../service';
 import { ProjectForm } from '../project';
 import { Container, Loading, Message } from '../layout';
 
@@ -26,14 +28,6 @@ function Project() {
         .catch((error) => console.log(error));
     }, [id]);
 
-    const toggleProjectForm = () => {
-        setShowProjectForm(!showProjectForm);
-    }
-
-    const toggleServiceForm = () => {
-        setShowServiceForm(!showServiceForm);
-    }
-
     const editPost = (project) => {
         //budget validation
         if (project.budget < project.cost) {
@@ -55,6 +49,57 @@ function Project() {
             setMessage({ type: 'success', message: 'Projeto atualizado com sucesso!', hash: new Date() });
         })
         .catch((error) => console.log(error));
+    }
+
+    const createService = (project) => {
+        //last service
+        const lastService = project.services[project.services.length - 1];
+        lastService.id = uuidv4();
+
+        const lastServiceCost = lastService.cost;
+        const newCost = parseFloat(project.cost) + parseFloat(lastServiceCost);
+        
+        //cost validation
+        if (parseFloat(lastServiceCost) < 0) {
+            setMessage({ type: 'error', message: 'O orçamento do serviço não pode ser menor que zero!', hash: new Date() });
+            project.services.pop();
+            return;
+        }
+
+        // maximum value validation
+        if(newCost > parseFloat(project.budget)) {
+            setMessage({ type: 'error', message: 'Orçamento ultrapassado, verifique o valor do serviço!', hash: new Date() });
+            project.services.pop();
+            return;
+        }
+        
+        //add service cost to project total cost
+        project.cost = newCost;
+
+        //update project
+        fetch(`http://localhost:5000/projects/${project.id}`, {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(project)
+        })
+        .then((resp) => resp.json())
+        .then((data) => {
+            setProject(data);
+            setShowServiceForm(false);
+            setMessage({ type: 'success', message: 'Projeto atualizado com sucesso!', hash: new Date() });
+        })
+        .catch((error) => console.log(error));
+
+    }
+
+    const toggleProjectForm = () => {
+        setShowProjectForm(!showProjectForm);
+    }
+
+    const toggleServiceForm = () => {
+        setShowServiceForm(!showServiceForm);
     }
 
     return (
@@ -99,22 +144,24 @@ function Project() {
 
                         <div className='service-form-container'>
                             <h2>Adicione um serviço:</h2>
-                            
+
                             <button onClick={toggleServiceForm} className='btn'>
                                 {!showServiceForm ? 'Adicionar Serviço' : 'Fechar'}
                             </button>
 
                             <div className='project-info'>
                                 {showServiceForm && (
-                                    <div>
-                                        <p>Formulário de Serviço</p>
-                                    </div>
+                                    <ServiceForm
+                                        handleSubmit={createService}
+                                        btnText='Adicionar Serviço'
+                                        projectData={project}
+                                    />
                                 )}
                             </div>
                         </div>
-                        
-                        <h1>Serviços</h1> 
-                        
+
+                        <h1>Serviços</h1>
+
                         <Container customClass='start'>
                             <p>Itens do serviçofa-spin</p>
                         </Container>

@@ -7,20 +7,16 @@
         "id": "1",
         "name": "Infra"
       },
-      "cost": 0,
-      "service": [],
+      "cost": 5000,
+      "services": [
+        {
+          "name": "TESTE",
+          "description": "Testando serviço",
+          "cost": "5000",
+          "id": "bf49d372-e3ef-435c-83c4-78aa813116e0"
+        }
+      ],
       "id": 1
-    },
-    {
-      "name": "Ramona Velez",
-      "budget": "100",
-      "category": {
-        "id": "3",
-        "name": "Design"
-      },
-      "cost": 0,
-      "service": [],
-      "id": 2
     }
   ],
   "categories": [
