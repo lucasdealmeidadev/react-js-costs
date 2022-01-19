@@ -7,13 +7,31 @@
         "id": "1",
         "name": "Infra"
       },
-      "cost": 1000,
+      "cost": 1168,
       "services": [
         {
           "name": "Build",
           "cost": "1000",
           "description": "Testando Build",
           "id": "8c3fda50-faff-4478-bc30-b8c47cdc0564"
+        },
+        {
+          "name": "Valentine Mclaughlin",
+          "cost": "28",
+          "description": "Ipsa et dolorum id ",
+          "id": "6dcd9ac9-abbd-4668-a78c-75412c42f5c6"
+        },
+        {
+          "name": "Octavius Vazquez",
+          "cost": "82",
+          "description": "Quia dignissimos dol",
+          "id": "7adbc683-bf78-42a0-b166-9e618e6dc2d3"
+        },
+        {
+          "name": "Francis Newton",
+          "cost": "58",
+          "description": "Officiis fugiat odi",
+          "id": "91d1e577-445f-4b00-83de-8483e71c7461"
         }
       ],
       "id": 1

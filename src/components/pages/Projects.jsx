@@ -1,6 +1,6 @@
 import { useLocation } from 'react-router-dom';
 import { useEffect, memo, useState } from 'react';
-import { ProjectCard } from '../project';
+import { ProjectCard, ProjectSearch } from '../project';
 import { Container, LinkButton, Message, Loading } from '../layout';
 
 import './Projects.css';
@@ -8,6 +8,7 @@ import './Projects.css';
 function Projects() {
     const [projects, setProjects] = useState([]);
     const [removeLoading, setRemoveLoading] = useState(false);
+    const [control, setControl] = useState();
     const [message, setMessage] = useState({});
     const location = useLocation();
 
@@ -18,7 +19,7 @@ function Projects() {
             setMessage({ type: type, message: message, hash: hash });
             window.history.replaceState({}, document.title);
         }
-
+        
         fetch('http://localhost:5000/projects', {
             method: 'GET',
             headers: {
@@ -51,6 +52,24 @@ function Projects() {
         .catch((error) => console.log(error));
     }
 
+    const search = (value) => {
+        setRemoveLoading(false);
+
+        fetch(`http://localhost:5000/projects?q=${value}`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        .then((resp) => resp.json())
+        .then((data) => {
+            setControl(data.length);
+            setProjects(data);
+            setRemoveLoading(true);
+        })
+        .catch((error) => console.log(error));
+    }
+
     return (
         <div className='project-container'>
             <div className='title-container'>
@@ -64,6 +83,8 @@ function Projects() {
                 hash={message.hash}
                 setMessage={setMessage}
             />}
+
+            <ProjectSearch handleSubmit={search}/>
 
             <Container customClass='start'>
                 {
@@ -79,8 +100,12 @@ function Projects() {
                     ))
                 }
                 {!removeLoading && <Loading />}
-                {removeLoading && projects.length === 0 && (
+                {control !== 0 && removeLoading  && projects.length === 0 && (
                     <p>Não há projetos cadastrados!</p>
+                )}
+
+                {control === 0 && (
+                    <p>Nehum projeto foi encontrado, tente novamente!</p>
                 )}
             </Container>
         </div>

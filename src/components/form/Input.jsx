@@ -5,7 +5,7 @@ import './Input.css';
 function Input({ type, text, name, value, placeholder, handleOnChange }) {
     return (
         <div className='form-control'>
-            <label htmlFor={name}>{text}</label>
+            {text && <label htmlFor={name}>{text}</label>}
             <input
                 type={type}
                 name={name}
