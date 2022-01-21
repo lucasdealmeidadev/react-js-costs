@@ -1,0 +1,22 @@
+.contact .message {
+    margin-bottom: -3em !important;
+}
+
+.contact .contact-container {
+    position: absolute;
+    width: 100%;
+}
+
+.contact-container {
+    width: 450px;
+    margin: 0 auto;
+    padding: 3em;
+}
+
+.contact-container h1 {
+    margin-bottom: 0.5em;
+}
+
+.contact-container p {
+    color: #7b7b7b;
+}

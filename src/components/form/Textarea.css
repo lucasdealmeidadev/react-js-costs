@@ -1,0 +1,10 @@
+.form-control textarea {
+    padding: .9em;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    resize: none;
+}
+
+.form-control textarea::placeholder {
+    color: #7b7b7b;
+}
