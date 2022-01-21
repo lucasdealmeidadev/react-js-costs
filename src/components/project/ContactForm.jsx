@@ -5,7 +5,7 @@ import './ProjectForm.css';
 
 function ContactForm({ handleSubmit, btnText, contactData }) {
     const [contact, setContact] = useState(contactData || {});
-
+    
     const submit = (e) => {
         e.preventDefault();
         handleSubmit(contact);
