@@ -20,7 +20,7 @@ function ProjectSearch({ handleSubmit }) {
                 name='search'
                 placeholder='Pesquise pelo item desejado...'
                 handleOnChange={handleChange}
-                value={search ? search : ''}
+                value={search || ''}
             />
 
             <SubmitButton text='Pesquisar' />

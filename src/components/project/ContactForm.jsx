@@ -1,11 +1,15 @@
-import { memo, useState } from 'react';
+import { memo, useEffect, useState } from 'react';
 import { Input, Textarea, SubmitButton } from '../form';
 
 import './ProjectForm.css';
 
-function ContactForm({ handleSubmit, btnText, contactData }) {
+function ContactForm({ handleSubmit, btnText, contactData, reset }) {
     const [contact, setContact] = useState(contactData || {});
-    
+
+    useEffect(() => {
+        if(reset) setContact({});
+    }, [reset]);
+
     const submit = (e) => {
         e.preventDefault();
         handleSubmit(contact);
