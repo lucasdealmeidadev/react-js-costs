@@ -1,4 +1,4 @@
-import { memo, useState, useEffect, Fragment } from 'react';
+import { memo, useState, Fragment } from 'react';
 import { ContactForm } from '../project';
 import { Message, Loading } from '../layout';
 
@@ -9,7 +9,12 @@ function Contact() {
     const [message, setMessage] = useState({});
     const [removeLoading, setRemoveLoading] = useState(true);
 
-    const createPost = (contact) => {
+    const createPost = (contact, errors) => {
+        if(errors){
+            setMessage({ type: 'error', message: errors, hash: new Date() });
+            return;
+        }
+
         setResetForm(false);
         setRemoveLoading(false);
 
