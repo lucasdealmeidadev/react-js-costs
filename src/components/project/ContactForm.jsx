@@ -1,48 +1,43 @@
-import { memo, useEffect, useState } from 'react';
+import { memo, useState, useEffect } from 'react';
 import { Input, Textarea, SubmitButton } from '../form';
+import { ErrorMessage } from '../layout';
+
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 
 import './ProjectForm.css';
 
-function ContactForm({ handleSubmit, btnText, contactData, reset }) {
-    const [contact, setContact] = useState(contactData || {});
+function ContactForm({ handleSubmit, btnText, contactData, resetForm }) {
 
     useEffect(() => {
-        if (reset) setContact({});
-    }, [reset]);
+        if (resetForm) setContact({});
+    }, [resetForm]);
+    
+    const [contact, setContact] = useState(contactData || {});
 
-    async function validate() {
-        let schema = yup.object().shape({
-            message: yup.string()
-                        .trim()
-                        .required('O campo mensagem é obrigatório.')
-                        .min(10, 'O campo mensagem deve ter no mínimo 10 caracteres.'),
-            subject: yup.string()
-                        .required('O campo assunto é obrigatório.'),
-            email: yup.string()
-                      .trim()
-                      .email('E-mail inválido.')
-                      .required('O campo e-mail é obrigatório.'),
-            name: yup.string()
-                     .trim()
-                     .required('O campo nome é obrigatório.')
-                     .min(3, 'O campo nome deve ter no mínimo 3 caracteres.')
-        });
+    let schema = yup.object().shape({
+        message: yup.string()
+                    .trim()
+                    .required('O campo mensagem é obrigatório.')
+                    .min(10, 'O campo mensagem deve ter no mínimo 10 caracteres.'),
+        subject: yup.string()
+                    .required('O campo assunto é obrigatório.'),
+        email: yup.string()
+                  .trim()
+                  .email('E-mail inválido.')
+                  .required('O campo e-mail é obrigatório.'),
+        name: yup.string()
+                 .trim()
+                 .required('O campo nome é obrigatório.')
+                 .min(3, 'O campo nome deve ter no mínimo 3 caracteres.')
+    });
 
-        try {
-            await schema.validate(contact);
-            return true;
-        } catch (error) {
-            handleSubmit({}, error.errors);
-            return false;
-        }
-    }
-
-    const submit = async (e) => {
-        e.preventDefault();
-
-        if (!(await validate())) return;
-
+    const { register, handleSubmit: handleOnSubmit, formState: { errors }, reset } = useForm({
+        resolver: yupResolver(schema)
+    });
+    
+    const submit = () => {
         handleSubmit(contact);
     }
 
@@ -51,8 +46,9 @@ function ContactForm({ handleSubmit, btnText, contactData, reset }) {
     }
 
     return (
-        <form onSubmit={submit} className='form'>
+        <form onSubmit={handleOnSubmit(submit)} className='form'>
             <Input
+                register={register}
                 type='text'
                 text='Nome completo'
                 name='name'
@@ -60,16 +56,27 @@ function ContactForm({ handleSubmit, btnText, contactData, reset }) {
                 handleOnChange={handleChange}
                 value={contact.name || ''}
             />
+            <ErrorMessage
+                errors={errors}
+                name='name'
+            />
 
             <Input
-                type='email'
+                register={register}
+                type='text'
                 text='Melhor e-mail'
                 name='email'
                 placeholder='Insira seu melhor e-mail'
                 handleOnChange={handleChange}
                 value={contact.email || ''}
             />
+            <ErrorMessage
+                errors={errors}
+                name='email'
+            />
+
             <Input
+                register={register}
                 type='text'
                 text='Assunto do contato'
                 name='subject'
@@ -77,13 +84,23 @@ function ContactForm({ handleSubmit, btnText, contactData, reset }) {
                 handleOnChange={handleChange}
                 value={contact.subject || ''}
             />
+            <ErrorMessage
+                errors={errors}
+                name='subject'
+            />
+
             <Textarea
+                register={register}
                 text='Mensagem de contato'
                 name='message'
                 placeholder='Digite sua mensagem aqui...'
                 handleOnChange={handleChange}
                 value={contact.message || ''}
                 rows='8'
+            />
+            <ErrorMessage
+                errors={errors}
+                name='message'
             />
 
             <SubmitButton text={btnText} />

@@ -9,12 +9,7 @@ function Contact() {
     const [message, setMessage] = useState({});
     const [removeLoading, setRemoveLoading] = useState(true);
 
-    const createPost = (contact, errors) => {
-        if(errors){
-            setMessage({ type: 'error', message: errors, hash: new Date() });
-            return;
-        }
-
+    const createPost = (contact) => {
         setResetForm(false);
         setRemoveLoading(false);
 
@@ -51,7 +46,7 @@ function Contact() {
                 <h1>Contato</h1>
                 <p>Dúvidas? Entre em contato para solicitar mais informações.</p>
 
-                <ContactForm handleSubmit={createPost} reset={resetForm} btnText='Enviar'/>
+                <ContactForm handleSubmit={createPost} resetForm={resetForm} btnText='Enviar'/>
             </div>
 
             {!removeLoading && <Loading />}

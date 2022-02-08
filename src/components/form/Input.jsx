@@ -2,11 +2,13 @@ import { memo } from 'react';
 
 import './Input.css';
 
-function Input({ type, text, name, value, placeholder, handleOnChange }) {
+
+const Input = ({ register, type, text, name, value, placeholder, handleOnChange }) => {
     return (
         <div className='form-control'>
             {text && <label htmlFor={name}>{text}</label>}
             <input
+                {...register(name)}
                 type={type}
                 name={name}
                 id={name}
@@ -16,6 +18,6 @@ function Input({ type, text, name, value, placeholder, handleOnChange }) {
             />
         </div>
     );
-}
+};
 
 export default memo(Input);
