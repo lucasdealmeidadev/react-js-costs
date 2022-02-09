@@ -13,30 +13,30 @@ function ContactForm({ handleSubmit, btnText, contactData, resetForm }) {
     useEffect(() => {
         if (resetForm) setContact({});
     }, [resetForm]);
-    
+
     const [contact, setContact] = useState(contactData || {});
 
     let schema = yup.object().shape({
         message: yup.string()
-                    .trim()
-                    .required('O campo mensagem é obrigatório.')
-                    .min(10, 'O campo mensagem deve ter no mínimo 10 caracteres.'),
+            .trim()
+            .required('O campo mensagem é obrigatório.')
+            .min(10, 'O campo mensagem deve ter no mínimo 10 caracteres.'),
         subject: yup.string()
-                    .required('O campo assunto é obrigatório.'),
+            .required('O campo assunto é obrigatório.'),
         email: yup.string()
-                  .trim()
-                  .email('E-mail inválido.')
-                  .required('O campo e-mail é obrigatório.'),
+            .trim()
+            .email('E-mail inválido.')
+            .required('O campo e-mail é obrigatório.'),
         name: yup.string()
-                 .trim()
-                 .required('O campo nome é obrigatório.')
-                 .min(3, 'O campo nome deve ter no mínimo 3 caracteres.')
+            .trim()
+            .required('O campo nome é obrigatório.')
+            .min(3, 'O campo nome deve ter no mínimo 3 caracteres.')
     });
 
     const { register, handleSubmit: handleOnSubmit, formState: { errors }, reset } = useForm({
         resolver: yupResolver(schema)
     });
-    
+
     const submit = () => {
         handleSubmit(contact);
     }
