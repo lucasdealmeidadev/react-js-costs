@@ -7,13 +7,16 @@
         "id": "1",
         "name": "Infra"
       },
-      "cost": 1000,
+      "cost": null,
       "services": [
         {
           "name": "Build",
           "cost": "1000",
           "description": "Testando Build",
           "id": "8c3fda50-faff-4478-bc30-b8c47cdc0564"
+        },
+        {
+          "id": "6326ff39-3868-4786-a44a-5828489008a7"
         }
       ],
       "id": 1
@@ -61,6 +64,17 @@
       "cost": 0,
       "services": [],
       "id": 5
+    },
+    {
+      "name": "Correção servidor Node.js",
+      "budget": "20",
+      "category": {
+        "id": "2",
+        "name": "Desenvolvimento"
+      },
+      "cost": 0,
+      "services": [],
+      "id": 6
     }
   ],
   "contacts": [

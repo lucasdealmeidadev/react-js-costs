@@ -14,12 +14,6 @@ function NewProject() {
         project.cost = 0;
         project.services = [];
 
-        //budget validation
-        if (project.budget < 0) {
-            setMessage({ type: 'error', message: 'O orçamento do projeto não pode ser menor que zero!', hash: new Date() });
-            return;
-        }
-
         fetch('http://localhost:5000/projects', {
             method: 'POST',
             headers: {

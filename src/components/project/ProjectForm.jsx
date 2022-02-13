@@ -15,6 +15,7 @@ function ProjectForm({ handleSubmit, btnText, projectData }) {
     let schema = yup.object().shape({
         category_id: yup.string()
             .ensure()
+            .nullable()
             .required('O campo categoria é obrigatório.'),
         budget: yup.string()
             .trim()
