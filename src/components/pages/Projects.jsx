@@ -9,6 +9,7 @@ function Projects() {
     const [projects, setProjects] = useState([]);
     const [removeLoading, setRemoveLoading] = useState(false);
     const [control, setControl] = useState();
+    const [disableSearch, setDisableSearch] = useState();
     const [message, setMessage] = useState({});
     const location = useLocation();
 
@@ -28,6 +29,7 @@ function Projects() {
         })
         .then((resp) => resp.json())
         .then((data) => {
+            setDisableSearch(data.length);
             setProjects(data);
             setRemoveLoading(true);
         })
@@ -44,8 +46,10 @@ function Projects() {
             }
         })
         .then((resp) => resp.json())
-        .then((data) => {
-            setProjects(projects.filter((project) => project.id !== id));
+        .then(() => {
+            const data = projects.filter((project) => project.id !== id);
+            setProjects(data);
+            setDisableSearch(data.length);
             setRemoveLoading(true);
             setMessage({ type: 'success', message: 'Projeto removido com sucesso!', hash: new Date() });
         })
@@ -84,7 +88,7 @@ function Projects() {
                 setMessage={setMessage}
             />}
 
-            <ProjectSearch handleSubmit={search}/> 
+            { disableSearch !== 0 && <ProjectSearch handleSubmit={search}/> } 
 
             <Container customClass='start'>
                 {
