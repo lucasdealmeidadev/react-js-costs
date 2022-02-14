@@ -84,7 +84,7 @@ function Projects() {
                 setMessage={setMessage}
             />}
 
-            <ProjectSearch handleSubmit={search}/>
+            <ProjectSearch handleSubmit={search}/> 
 
             <Container customClass='start'>
                 {
