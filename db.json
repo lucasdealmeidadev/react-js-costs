@@ -1,5 +1,35 @@
 {
-  "projects": [],
+  "projects": [
+    {
+      "name": "Servidor Node.js",
+      "budget": "1000",
+      "category": {
+        "id": "3",
+        "name": "Design"
+      },
+      "cost": 111,
+      "services": [
+        {
+          "name": "wwww",
+          "cost": "111",
+          "description": "www",
+          "id": "2553540d-edc4-4c00-80b2-1b3ba7ae10f2"
+        }
+      ],
+      "id": 1
+    },
+    {
+      "name": "wee",
+      "budget": "5",
+      "category": {
+        "id": "1",
+        "name": "Infra"
+      },
+      "cost": 0,
+      "services": [],
+      "id": 2
+    }
+  ],
   "contacts": [
     {
       "name": "Melissa Mcmillan",

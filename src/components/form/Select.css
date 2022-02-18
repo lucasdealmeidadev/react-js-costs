@@ -14,3 +14,7 @@
     border-radius: 5px;
     border: 1px solid #ccc;
 }
+
+.form-control select option[value=DEFAULT]{
+    pointer-events: none !important;
+}

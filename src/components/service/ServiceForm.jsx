@@ -16,10 +16,10 @@ function ServiceForm({ handleSubmit, btnText, projectData }) {
             .trim()
             .required('O campo nome é obrigatório.')
             .min(3, 'O campo nome deve ter no mínimo 3 caracteres.'),
-        cost: yup.string()
-            .trim()
-            .required('O campo custo é obrigatório.')
-            .matches(/^[0-9]+$/, 'Somente números positivos são permitidos no campo custo.'),
+        cost: yup.number()
+            .transform((value, originalValue) => originalValue === '' ? undefined : value)
+            .typeError('Somente números positivos são permitidos no campo custo.')
+            .required('O campo orçamento é obrigatório.'),
         name: yup.string()
             .trim()
             .required('O campo nome é obrigatório.')
@@ -56,7 +56,7 @@ function ServiceForm({ handleSubmit, btnText, projectData }) {
 
             <Input
                 register={register}
-                type='number'
+                type='text'
                 text='Custo do serviço'
                 name='cost'
                 placeholder='Insira o valor total'

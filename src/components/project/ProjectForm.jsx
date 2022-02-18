@@ -15,12 +15,11 @@ function ProjectForm({ handleSubmit, btnText, projectData }) {
     let schema = yup.object().shape({
         category_id: yup.string()
             .ensure()
-            .nullable()
             .required('O campo categoria é obrigatório.'),
-        budget: yup.string()
-            .trim()
-            .required('O campo orçamento é obrigatório.')
-            .matches(/^[0-9]+$/, 'Somente números positivos são permitidos no campo orçamento.'),
+        budget: yup.number()
+            .transform((value, originalValue) => originalValue === '' ? undefined : value)
+            .typeError('Somente números positivos são permitidos no campo orçamento.')
+            .required('O campo orçamento é obrigatório.'),
         name: yup.string()
             .trim()
             .required('O campo nome é obrigatório.')
@@ -28,6 +27,10 @@ function ProjectForm({ handleSubmit, btnText, projectData }) {
     });
 
     const { register, handleSubmit: handleOnSubmit, formState: { errors }, reset } = useForm({
+        defaultValues: {
+            ...project,
+            category_id: project.category ? project.category.id : ''
+        },
         resolver: yupResolver(schema)
     });
 
@@ -81,7 +84,7 @@ function ProjectForm({ handleSubmit, btnText, projectData }) {
 
             <Input
                 register={register}
-                type='number'
+                type='text'
                 text='Orçamento do projeto'
                 name='budget'
                 placeholder='Insira o orçamento total'
