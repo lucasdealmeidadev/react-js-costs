@@ -25,8 +25,15 @@
         "id": "1",
         "name": "Infra"
       },
-      "cost": 0,
-      "services": [],
+      "cost": 4,
+      "services": [
+        {
+          "name": "Constance Browning",
+          "cost": "4",
+          "description": "Quaerat at excepturi",
+          "id": "ef1d4a08-d2e6-4974-a46d-3c0c313a02a5"
+        }
+      ],
       "id": 2
     }
   ],

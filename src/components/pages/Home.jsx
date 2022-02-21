@@ -1,7 +1,7 @@
 import { memo } from 'react';
 
-import savings from '../../img/savings.svg'
-import { LinkButton } from '../layout'
+import savings from '../../img/savings.svg';
+import { LinkButton } from '../layout';
 import './Home.css';
 
 function Home() {

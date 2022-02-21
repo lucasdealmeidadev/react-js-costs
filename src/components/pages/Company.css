@@ -1,0 +1,32 @@
+.company-container {
+    padding: 2em;
+    width: 100%;
+}
+
+.company-title {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2em;
+}
+
+.company-text {
+    line-height: 1.8;
+    padding-left: 2em;
+    text-align: justify;
+}
+
+.company-text h1 {
+    margin-bottom: 10px;
+}
+
+.company-text p {
+    margin-bottom: 30px;
+}
+
+.company-title img {
+    border-radius: 5px;
+    box-shadow: 0 1px 4px rgb(0 0 0 / 16%);
+    width: 40%;
+    height: 362px;
+    border: 3px solid #FFBB2F;
+}
