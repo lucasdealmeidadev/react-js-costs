@@ -9,15 +9,15 @@ Foram adicionados os seguintes recursos ao projeto:
 - Criação das interfaces **sobre empresa** e **contato**;
 - Validação dos formulários utilizando a biblioteca **YUP**;
 - Criação do back-end para cadastro das mensagens enviadas no formulário de contato;
-- Por fim, foi adicioando o campo search para pesquisa dos projetos cadastrados.
+- Por fim, foi adicionado o campo search para pesquisa dos projetos cadastrados.
 
 ## 🚀 Recursos utilizados
 
+* **[HookForm/error-message](https://github.com/react-hook-form/error-message)**
+* **[HookForm/resolvers](https://github.com/react-hook-form/resolvers)**
 * **[JSON Server](https://www.npmjs.com/package/json-server)**
 * **[React](https://pt-br.reactjs.org/)**
 * **[React Hook Form](https://www.npmjs.com/package/react-hook-form)**
-* **[HookForm/error-message](https://github.com/react-hook-form/error-message)**
-* **[HookForm/resolvers](https://github.com/react-hook-form/resolvers)**
 * **[React Icons](https://www.npmjs.com/package/react-icons)**
 * **[React Router Dom](https://www.npmjs.com/package/react-router-dom)**
 * **[Uuid](https://www.npmjs.com/package/uuid)**
