@@ -2,7 +2,7 @@
 
 ![Preview](https://github.com/lucasdealmeidadev/react-js-costs/blob/main/banner.png?raw=true)
 
-Construindo uma aplicação para gerenciamento de projetos com React. Esse artefato foi uma ampliação da aula ministrada por **Matheus Battisti** na **Hora de Codar**.
+Construindo uma aplicação para gerencimento de projetos com React. O Costs foi uma ampliação da aula ministrada por **Matheus Battisti** na **Hora de Codar**.
 
 Foram adicionados os seguintes recursos ao projeto:
 
