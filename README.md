@@ -20,7 +20,7 @@ Foram adicionados os seguintes recursos ao projeto:
 * **[React Hook Form](https://www.npmjs.com/package/react-hook-form)**
 * **[React Icons](https://www.npmjs.com/package/react-icons)**
 * **[React Router Dom](https://www.npmjs.com/package/react-router-dom)**
-* **[Uuid](https://www.npmjs.com/package/uuid)**
+* **[UUID](https://www.npmjs.com/package/uuid)**
 * **[YUP](https://www.npmjs.com/package/yup)**
 
 ## 🔥 Executando a aplicação no ambiente local
